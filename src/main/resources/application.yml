@@ -1,0 +1,73 @@
+spring:
+  admin-datasource:
+#    username: ${DB_USER:root}
+#    password: ${DB_PWD:Xxbmedia123@}
+#    jdbc-url: jdbc:mysql://${DB_HOST:10.10.22.106}:${DB_PORT:3306}/${DB_NAME:test}?&serverTimeZone=GMT+8
+#    driver-class-name: com.mysql.cj.jdbc.Driver
+#    driver-class-name: net.sf.log4jdbc.sql.jdbcapi.DriverSpy
+#  admin-datasource:
+    username: root
+    password: A_8I4YAXVTLmnD
+    jdbc-url: jdbc:mysql://10.10.9.145:3306/TZB_CYGLXT_1352640?serverTimezone=GMT
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  jpa:
+    hibernate:
+      naming:
+        implicit-strategy: org.hibernate.boot.model.naming.ImplicitNamingStrategyLegacyJpaImpl
+        physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
+      ddl-auto: create-drop
+    open-in-view: false
+#    show-sql: true
+
+  profiles:
+    include: oauth2
+  cache:
+     type: caffeine
+
+api:
+  path:
+    global-prefix:
+elasticsearch:
+  username: ${ES_USER}
+  password: ${ES_PASSWORD}
+  hosts: 
+properties:
+  webUrl: ${FRONT_URL:https://sdtzxx.shu.edu.cn/#/chartdash}
+#  webUrl: ${FRONT_URL:http://127.0.0.1:8081/#/chartdash}
+  logoutUrl: https://newsso.shu.edu.cn/oauth/logout?retUrl=https://eportal.shu.edu.cn/indexA.html&redirect_uri=https://eportal.shu.edu.cn/indexA.html
+
+trust:
+  store:
+    path: BDGRootCA.jks
+    password: '123'
+
+server:
+
+#    context-path: ${CONTEXT_PATH:/chaosuan/api}
+    port: 8082
+
+logging:
+  level:
+    root: info
+
+
+ip:
+  local-parsing: true
+rsa:
+  private_key: MIIBUwIBADANBgkqhkiG9w0BAQEFAASCAT0wggE5AgEAAkEA0vfvyTdGJkdbHkB8mp0f3FE0GYP3AYPaJF7jUd1M0XxFSE2ceK3k2kw20YvQ09NJKk+OMjWQl9WitG9pB6tSCQIDAQABAkA2SimBrWC2/wvauBuYqjCFwLvYiRYqZKThUS3MZlebXJiLB+Ue/gUifAAKIg1avttUZsHBHrop4qfJCwAI0+YRAiEA+W3NK/RaXtnRqmoUUkb59zsZUBLpvZgQPfj1MhyHDz0CIQDYhsAhPJ3mgS64NbUZmGWuuNKp5coY2GIj/zYDMJp6vQIgUueLFXv/eZ1ekgz2Oi67MNCk5jeTF2BurZqNLR3MSmUCIFT3Q6uHMtsB9Eha4u7hS31tj1UWE+D+ADzp59MGnoftAiBeHT7gDMuqeJHPL4b+kC+gzV4FGTfhR9q3tTbklZkD2A==
+
+file:
+  mac:
+    path: ~/file/
+    avatar: ~/avatar/
+  linux:
+    path: /home/eladmin/file/
+    avatar: /home/eladmin/avatar/
+  windows:
+    path: C:\eladmin\file\
+    avatar: C:\eladmin\avatar\
+  # 文件大小 /M
+  maxSize: 100
+  avatarMaxSize: 5
+swagger:
+  enabled: false
